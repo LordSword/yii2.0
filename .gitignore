@@ -1,3 +1,39 @@
+# yii console command
+/yii
 
+# phpstorm project files
+.idea
+
+# netbeans project files
+nbproject
+
+# zend studio for eclipse project files
+.buildpath
+.project
+.settings
+
+# windows thumbnail cache
+Thumbs.db
+
+# composer itself is not needed
+composer.phar
+
+# phpunit itself is not needed
+phpunit.phar
+# local phpunit config
+/phpunit.xml
+
+# Yii runtime
+backend/runtime/
+backend/web/admin/
+frontend/runtime/
+console/runtime/
+
+# Project Config
+/environments/prod/
+/environments/dev/
+
+# Project index
+backend/web/index.php
 
 
