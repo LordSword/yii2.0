@@ -3,7 +3,7 @@ namespace backend\models;
 
 use Yii;
 use yii\base\Model;
-use backend\models\userBackend;
+use backend\models\UserBackend;
 
 /**
  * Login form
