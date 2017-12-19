@@ -1,2 +1,2 @@
-# yii2.0
-adminTemplate
+# yii2.0_composer
+test
