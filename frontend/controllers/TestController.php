@@ -14,5 +14,6 @@ class TestController extends Controller
     public function actionAaa()
     {
         echo 111;
+        echo 222;
     }
 }
