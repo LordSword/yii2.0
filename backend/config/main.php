@@ -38,10 +38,6 @@ $config = [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        'request' => [
-            'class' => 'backend\components\Request',
-            'cookieValidationKey' => 'umzSrJyw4igf7IjPeQukzEHEQWkZPkoe',
-        ],
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,
