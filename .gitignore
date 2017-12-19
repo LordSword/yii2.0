@@ -34,4 +34,4 @@ console/runtime/
 /environments/dev/
 
 # Project index
-backend/web/index.php
+/backend/web/
