@@ -14,8 +14,7 @@ composer.phar
 /console/runtime/
 
 # Project Config
-/environments/prod/
-/environments/dev/
+#/environments/
 
-# Project index
-/backend/web/index.php
+# Project Index
+#/backend/web/index.php
