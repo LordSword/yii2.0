@@ -5,7 +5,7 @@ use backend\models\UserBackend;
 use common\helpers\MessageHelper;
 use common\models\Captcha;
 use Yii;
-use common\models\LoginForm;
+use backend\models\LoginForm;
 use yii\filters\AccessControl;
 use yii\web\Response;
 
