@@ -1,20 +1,2 @@
-# yii console command
-/yii
-
 # phpstorm project files
 .idea
-
-# composer itself is not needed
-composer.phar
-
-# Yii runtime
-/backend/runtime/
-/backend/web/admin/
-/frontend/runtime/
-/console/runtime/
-
-# Project Config
-/environments/prod/
-
-# Project Index
-/backend/web/index.php
