@@ -3,7 +3,7 @@ return [
     'components' => [
         'request' => [
             'class' => 'backend\components\Request',
-            'cookieValidationKey' => '',
+            'cookieValidationKey' => 'umzSrJyw4igfRGFDSDukzEHEQWkZPkoe',
         ],
     ],
 ];
