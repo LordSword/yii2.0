@@ -84,4 +84,22 @@ return array (
       '@mdm/admin' => $vendorDir . '/mdmsoft/yii2-admin',
     ),
   ),
+  'yiisoft/yii2-redis' =>
+  array (
+    'name' => 'yiisoft/yii2-redis',
+    'version' => '2.0.5.0',
+    'alias' =>
+    array (
+      '@yii/redis' => $vendorDir . '/yiisoft/yii2-redis',
+    ),
+  ),
+  'yiisoft/yii2-mongodb' =>
+  array (
+    'name' => 'yiisoft/yii2-mongodb',
+    'version' => '2.1.0.0',
+    'alias' =>
+    array (
+      '@yii/mongodb' => $vendorDir . '/yiisoft/yii2-mongodb',
+    ),
+  ),
 );

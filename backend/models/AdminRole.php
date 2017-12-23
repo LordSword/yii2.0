@@ -9,16 +9,12 @@ use yii\behaviors\TimestampBehavior;
  * This is the model class for table "ps_admin_role".
  *
  * @property int $id ID
- * @property string $name 标识
- * @property string $title 角色名称
+ * @property string $name 角色名称
  * @property string $desc 描述
- * @property string $top_menu 一级菜单
- * @property string $menu 二级菜单
  * @property string $permissions 权限集合
  * @property string $created_user 创建人
  * @property int $updated_at 更新时间
  * @property int $created_at 创建时间
- * @property int $groups 分组id
  */
 class AdminRole extends \yii\db\ActiveRecord
 {
@@ -36,11 +32,10 @@ class AdminRole extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'title', 'desc', 'created_user'], 'required'],
-            [['menu', 'permissions'], 'string'],
+            [['name', 'desc', 'permissions'], 'required'],
+            [['permissions'], 'string'],
             [['updated_at', 'created_at'], 'integer'],
-            [['name', 'title', 'desc', 'created_user'], 'string', 'max' => 255],
-            [['name'], 'unique'],
+            [['name', 'desc', 'created_user'], 'string', 'max' => 255],
         ];
     }
 
@@ -51,16 +46,12 @@ class AdminRole extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => '标识',
-            'title' => '角色名称',
+            'name' => '角色名称',
             'desc' => '描述',
-            'top_menu' => 'Top Menu',
-            'menu' => 'Menu',
-            'permissions' => 'Permissions',
+            'permissions' => '权限集合',
             'created_user' => '创建人',
             'updated_at' => '更新时间',
             'created_at' => '创建时间',
-            'groups' => 'Groups',
         ];
     }
     public function behaviors()
@@ -69,6 +60,11 @@ class AdminRole extends \yii\db\ActiveRecord
             TimestampBehavior::className()
         ];
     }
+    // 获取所有角色
+    public static function getAllRole(){
+        return self::find()->select(['id','name'])->where('id!=1')->asArray()->all();
+    }
+
     /**
      * @name 获取用户的权限
      * @param $roleId string 角色ID

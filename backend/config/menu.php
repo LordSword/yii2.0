@@ -52,7 +52,7 @@ $menu = [
             'icon' => '/admin/images/leftico01.png',
             'menuchannel' => [
                 ['title' => '角色列表', 'redirectUrl' => Url::to(['user/role-list'])],
-                ['title' => '人员列表', 'redirectUrl' => Url::to(['site/home'])],
+                ['title' => '人员列表', 'redirectUrl' => Url::to(['user/list'])],
             ],
         ],
     ],

@@ -1,4 +1,6 @@
 <?php
 return [
-    'adminEmail' => 'admin@example.com',
+    'permissionControllers' => [
+        'UserController' => '后台账号管理'
+    ],
 ];

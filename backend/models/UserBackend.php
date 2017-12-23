@@ -15,7 +15,6 @@ use yii\web\IdentityInterface;
  * @property int $id
  * @property string $username
  * @property string $phone
- * @property string $auth_key
  * @property string $password
  * @property string $role_id
  * @property string $created_user
@@ -42,7 +41,12 @@ class UserBackend extends ActiveRecord implements IdentityInterface
         self::STATUS_DELETED => '删除',
         self::STATUS_ACTIVE  => '活跃'
     ];
-
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::className()
+        ];
+    }
 
     /**
      * @inheritdoc
@@ -52,6 +56,9 @@ class UserBackend extends ActiveRecord implements IdentityInterface
         return [
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+            [['username', 'phone', 'password'], 'required'],
+            [['username', 'password', 'mark'], 'string'],
+            [['status' , 'updated_at', 'created_at'], 'integer'],
         ];
     }
 
@@ -64,7 +71,6 @@ class UserBackend extends ActiveRecord implements IdentityInterface
             'id' => 'ID',
             'username' => '用户名',
             'phone' => '手机号',
-            'auth_key' => 'key',
             'password' => '密码',
             'role_id' => '角色ID',
             'status' => '状态',
@@ -229,5 +235,20 @@ class UserBackend extends ActiveRecord implements IdentityInterface
     public function getRoleId()
     {
         return $this->role_id == self::SUPER_ROLE;
+    }
+    // 获取角色
+    public static function getRoleName($id){
+        $role = self::find()->where(['id'=>$id])->select(['role_id'])->asArray()->one();
+        if(empty($role['role_id'])){
+            return 'superAdmin';
+        }
+        $roleName = AdminRole::find()
+            ->where(['in','id',json_decode($role['role_id'],true)])
+            ->select(['name'])->asArray()->all();
+        $data = '';
+        foreach ($roleName as $item){
+            $data .= ','.$item['name'];
+        }
+        return trim($data,',');
     }
 }
